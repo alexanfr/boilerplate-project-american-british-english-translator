@@ -75,7 +75,7 @@ class Translator {
         const timeRegex = /([1-9]|1[012]).[0-5][0-9]/g;
         const translatedText = this.translate(text, dictionary, titles, timeRegex, 'toAmerican');
 
-        if(!translated) {
+        if(!translatedText) {
             return text;
         }
 
