@@ -68,5 +68,66 @@ suite('Unit Tests', () => {
             done();
         });
         
+        test('Translate First, caramelise the onions.', function(done) {
+            assert.equal(translator.toAmericanEnglish('First, caramelise the onions.')[0], 'First, caramelize the onions.');
+            done();
+        });
+
+        test('Translate I spent the bank holiday at the funfair.', function(done) {
+            assert.equal(translator.toAmericanEnglish('I spent the bank holiday at the funfair.')[0], 'I spent the public holiday at the carnival.');
+            done();
+        });
+
+        test('Translate I had a bicky then went to the chippy.', function(done) {
+            assert.equal(translator.toAmericanEnglish('I had a bicky then went to the chippy.')[0], 'I had a cookie then went to the fish-and-chip shop.');
+            done();
+        });
+
+        test("Translate I've just got bits and bobs in my bum bag.", function(done) {
+            assert.equal(translator.toAmericanEnglish("I've just got bits and bobs in my bum bag.")[0], "I've just got odds and ends in my fanny pack.");
+            done();
+        });
+
+        test('Translate The car boot sale at Boxted Airfield was called off.', function(done) {
+            assert.equal(translator.toAmericanEnglish('The car boot sale at Boxted Airfield was called off.')[0], 'The swap meet at Boxted Airfield was called off.');
+            done();
+        });
+
+        test('Translate Have you met Mrs Kalyani?', function(done) {
+            assert.equal(translator.toAmericanEnglish('Have you met Mrs Kalyani?')[0], 'Have you met Mrs. Kalyani?');
+            done();
+        });
+
+        test("Translate Prof Joyner of King's College, London.", function(done) {
+            assert.equal(translator.toAmericanEnglish("Prof Joyner of King's College, London.")[0], "Prof. Joyner of King's College, London.");
+            done();
+        });
+
+        test('Translate Tea time is usually around 4 or 4.30.', function(done) {
+            assert.equal(translator.toAmericanEnglish('Tea time is usually around 4 or 4.30.')[0], 'Tea time is usually around 4 or 4:30.');
+            done();
+        });
+    });
+
+    suite('Highlight Translation', function() {
+        test('Highlight translation in Mangoes are my favorite fruit.', function(done) {
+            assert.equal(translator.toBritishEnglish('Mangoes are my favorite fruit')[1], 'Mangoes are my <span class="highlight">favourite</span> fruit');
+            done();
+        });
+
+        test('Highlight translation in I ate yogurt for breakfast.', function(done) {
+            assert.equal(translator.toBritishEnglish('I ate yogurt for breakfast.')[1], 'I ate <span class="highlight">yoghurt</span> for breakfast.');
+            done();
+        });
+
+        test('Highlight translation in We watched the footie match for a while.', function(done) {
+            assert.equal(translator.toAmericanEnglish('We watched the footie match for a while.')[1], 'We watched the <span class="highlight">soccer</span> match for a while.');
+            done();
+        });
+
+        test('Highlight translation in Paracetamol takes up to an hour to work.', function(done) {
+            assert.equal(translator.toAmericanEnglish('Paracetamol takes up to an hour to work.')[1], '<span class="highlight">Tylenol</span> takes up to an hour to work.');
+            done();
+        });
     });
 });
