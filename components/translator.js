@@ -90,7 +90,7 @@ class Translator {
     replaceAllWithHighlight(text, matchesMap) {
         const re = new RegExp(Object.keys(matchesMap).join('|'), 'gi');
         return text.replace(re, (matched) => {
-            return `<span class='highlight'>${
+            return `<span class=\"highlight\">${
                 matchesMap[matched.toLowerCase()]
             }</span>`;
         });
