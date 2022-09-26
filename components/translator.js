@@ -16,14 +16,16 @@ class Translator {
         const lowerText = text.toLowerCase();
         const matchesMap = {};
 
+        //Titles and honorifics
         Object.entries(titles).map(([a, b]) => {
             if(lowerText.includes(a)) {
                 matchesMap[a] = b.charAt(0).toUpperCase() + b.slice(1);
             }
         });
 
+        //Filter words with spaces
         const wordsWithSpaces = Object.fromEntries(
-            Object.entries(dictionary).filter(([a, b]) => a.includes(''))
+            Object.entries(dictionary).filter(([a, b]) => a.includes(' '))
         );
 
         Object.entries(wordsWithSpaces).map(([a, b]) => {
